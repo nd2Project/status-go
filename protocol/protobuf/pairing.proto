@@ -1,0 +1,245 @@
+syntax = "proto3";
+
+option go_package = "./;protobuf";
+package protobuf;
+
+message Backup {
+  uint64 clock = 1;
+  string id = 2;
+
+  repeated SyncInstallationContactV2 contacts = 3;
+  repeated SyncCommunity communities = 4;
+}
+
+message MultiAccount {
+  string name = 1;
+  int64 timestamp = 2;
+  string identicon = 3;
+  repeated ColourHash color_hash = 4;
+  int64 colorId = 5;
+  string keycard_pairing = 6;
+  string key_uid = 7;
+  repeated IdentityImage images = 8;
+
+  message ColourHash {
+    repeated int64 index = 1;
+  }
+
+  message IdentityImage {
+    string key_uid = 1;
+    string name = 2;
+    bytes payload = 3;
+    int64 width = 4;
+    int64 height = 5;
+    int64 filesize = 6;
+    int64 resize_target = 7;
+    uint64 clock = 8;
+  }
+}
+
+message LocalPairingPayload {
+  repeated Key keys = 1;
+  MultiAccount multiaccount = 2;
+  string password = 3;
+
+  message Key {
+    string name = 1;
+    bytes data = 2;
+  }
+}
+
+message PairInstallation {
+  uint64 clock = 1;
+  string installation_id = 2;
+  string device_type = 3;
+  string name = 4;
+}
+
+message SyncInstallationContact {
+  uint64 clock = 1;
+  string id = 2;
+  string profile_image = 3;
+  string ens_name = 4;
+  uint64 last_updated = 5;
+  repeated string system_tags = 6;
+  string local_nickname = 7;
+}
+
+message SyncInstallationContactV2 {
+  uint64 last_updated_locally = 1;
+  string id = 2;
+  string profile_image = 3;
+  string ens_name = 4;
+  uint64 last_updated = 5;
+  repeated string system_tags = 6;
+  string local_nickname = 7;
+  bool added = 9;
+  bool blocked = 10;
+  bool muted = 11;
+  bool removed = 12;
+  bool has_added_us = 13;
+  int64 verification_status = 14;
+  int64 trust_status = 15;
+}
+
+message SyncInstallationAccount {
+  uint64 clock = 1;
+  string profile_image = 2;
+  uint64 last_updated = 3;
+}
+
+message SyncInstallationPublicChat {
+  uint64 clock = 1;
+  string id = 2;
+}
+
+message SyncCommunity {
+  uint64 clock = 1;
+  bytes id = 2;
+  bytes private_key = 3;
+  bytes description = 4;
+  bool joined = 5;
+  bool verified = 6;
+  bool muted = 7;
+  repeated SyncCommunityRequestsToJoin requests_to_join = 8;
+  SyncCommunitySettings settings = 9;
+  bool encrypted = 10;
+}
+
+message SyncCommunityRequestsToJoin {
+  bytes id = 1;
+  string public_key = 2;
+  uint64 clock = 3;
+  string ens_name = 4;
+  string chat_id = 5;
+  bytes community_id = 6;
+  uint64 state = 7;
+}
+
+message SyncInstallation {
+  repeated SyncInstallationContact contacts = 1;
+  repeated SyncInstallationPublicChat public_chats = 2;
+  SyncInstallationAccount account = 3;
+  repeated SyncCommunity communities = 4;
+}
+
+message SyncChatRemoved {
+  uint64 clock = 1;
+  string id = 2;
+}
+
+message SyncChatMessagesRead {
+  uint64 clock = 1;
+  string id = 2;
+}
+
+message SyncActivityCenterRead {
+  uint64 clock = 1;
+  repeated bytes ids = 2;
+}
+
+message SyncActivityCenterAccepted {
+  uint64 clock = 1;
+  repeated bytes ids = 2;
+}
+
+message SyncActivityCenterDismissed {
+  uint64 clock = 1;
+  repeated bytes ids = 2;
+}
+
+message SyncBookmark {
+  uint64 clock = 1;
+  string url = 2;
+  string name = 3;
+  string image_url = 4;
+  bool   removed = 5;
+  uint64 deleted_at = 6;
+}
+
+message SyncClearHistory {
+  string chat_id = 1;
+  uint64 cleared_at = 2;
+}
+
+message SyncProfilePicture {
+  string name = 1;
+  bytes  payload = 2;
+	uint32 width = 3;
+	uint32 height = 4;      
+	uint32 file_size = 5;
+	uint32 resize_target = 6;
+  uint64 clock = 7;
+}
+
+message SyncProfilePictures {
+  string key_uid = 1;
+  repeated SyncProfilePicture pictures = 2;
+}
+
+message SyncWalletAccount {
+  uint64 clock = 1;
+	bytes address = 2;
+	bool wallet = 3;
+	bool chat = 4;
+	string type = 5;
+	string storage = 6;
+	string path = 7;
+	bytes publicKey = 8;
+	string name = 9;
+	string color = 10;
+	bool hidden = 11;
+  bool removed = 12;
+}
+
+message SyncWalletAccounts {
+  repeated SyncWalletAccount accounts = 1;
+}
+
+message SyncCommunitySettings {
+  uint64 clock = 1;
+  string community_id = 2;
+  bool history_archive_support_enabled = 3;
+}
+
+message SyncTrustedUser {
+  uint64 clock = 1;
+  string id = 2;
+  TrustStatus status = 3;
+
+  enum TrustStatus {
+    UNKNOWN = 0;
+    TRUSTED = 1;
+    UNTRUSTWORTHY = 2;
+  }
+}
+
+message SyncVerificationRequest {
+  uint64 clock = 1;
+  string from = 2;
+  string to = 3;
+  string challenge = 4;
+  uint64 requested_at = 5;
+  string response = 6;
+  uint64 replied_at = 7;
+  VerificationStatus verification_status = 8;
+
+  enum VerificationStatus {
+    UNKNOWN = 0;
+    PENDING = 1;
+    ACCEPTED = 2;
+    DECLINED = 3;
+    CANCELED = 4;
+  }
+}
+
+message SyncContactRequestDecision {
+  uint64 clock = 1;
+  string requestId = 2;
+  DecisionStatus decision_status = 3;
+
+  enum DecisionStatus {
+    ACCEPTED = 0;
+    DECLINED = 1;
+  }
+}
