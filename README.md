@@ -1,4 +1,5 @@
 # Status bindings for go-ethereum
+[Forked from status-im/status-go](https://github.com/status-im/status-go/commit/59c1864cf97ed4012f0be37ea607ef2179743032)
 
 [![GoDoc](https://godoc.org/github.com/status-im/status-go?status.svg)](https://godoc.org/github.com/status-im/status-go)
 [![Build Status](https://travis-ci.org/status-im/status-go.svg?branch=develop)](https://travis-ci.org/status-im/status-go)
@@ -15,4 +16,4 @@
 
 # License
 
-[Mozilla Public License 2.0](https://github.com/status-im/status-go/blob/develop/LICENSE.md)
+[Mozilla Public License 2.0](LICENSE.md)
