@@ -26,6 +26,8 @@ vendor/github.com/ethereum/go-ethereum/vendor
 node_modules/
 tags
 build/
+#Except for _assets/build
+!_assets/build
 
 #*
 .#*
