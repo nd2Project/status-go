@@ -344,10 +344,11 @@ vendor:
 .PHONY: vendor
 
 update-fleet-config: ##@other Update fleets configuration from fleets.status.im
-	./_assets/scripts/update-fleet-config.sh
-	@echo "Updating static assets..."
-	@go generate ./static
-	@echo "Done"
+#	./_assets/scripts/update-fleet-config.sh
+#	@echo "Updating static assets..."
+#	@go generate ./static
+#	@echo "Done"
+	@echo "Update not available now...todo: Include nd2alpha fleet"
 
 run-bootnode-systemd: ##@Easy way to run a bootnode locally with Docker Compose
 	@cd _assets/systemd/bootnode && $(MAKE)
