@@ -2,14 +2,15 @@ package params
 
 // Define available fleets.
 const (
-	FleetUndefined  = ""
-	FleetProd       = "eth.prod"
-	FleetStaging    = "eth.staging"
-	FleetTest       = "eth.test"
-	FleetWakuV2Prod = "wakuv2.prod"
-	FleetWakuV2Test = "wakuv2.test"
-	FleetStatusTest = "status.test"
-	FleetStatusProd = "status.prod"
+	FleetUndefined    = ""
+	FleetProd         = "eth.prod"
+	FleetStaging      = "eth.staging"
+	FleetTest         = "eth.test"
+	FleetWakuV2Prod   = "wakuv2.prod"
+	FleetWakuV2Test   = "wakuv2.test"
+	FleetStatusTest   = "status.test"
+	FleetStatusProd   = "status.prod"
+	Fleetnd2alphaProd = "nd2alpha.prod"
 )
 
 // Cluster defines a list of Ethereum nodes.

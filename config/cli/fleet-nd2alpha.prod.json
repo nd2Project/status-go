@@ -1,0 +1,16 @@
+{
+  "Rendezvous": false,
+  "NoDiscovery": false,
+  "ClusterConfig": {
+    "Enabled": true,
+    "Fleet": "nd2alpha.prod",
+    "BootNodes": [
+      "enode://23f6297a48b24f4f1e5b9b4da59f55ceefac26239a3342e509837a92327ab63d61f8a3883ecc3e4e1ba874aaca123e9ab05776f2502b109d41a68ca0492b0f6d@195.88.57.50:30301"
+    ],
+    "TrustedMailServers": [
+      "enode://2955ae8932c3522b0c279b7709467f0288d87b85b7c582887e00f6a624aa7eb5ec5b99245c8e4d3f9696a47aab9df71e349369dde81bf41a26b96ce47aad31ac@195.88.57.50:30303"
+    ],
+    "PushNotificationsServers": [],
+    "StaticNodes": []
+  }
+}
