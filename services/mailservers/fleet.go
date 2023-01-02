@@ -8,7 +8,7 @@ func DefaultMailservers() []Mailserver {
 		Mailserver{
 			ID:      "mail-01.fl-nd2-kmtr.nd2alpha.prod",
 			Address: "enode://2955ae8932c3522b0c279b7709467f0288d87b85b7c582887e00f6a624aa7eb5ec5b99245c8e4d3f9696a47aab9df71e349369dde81bf41a26b96ce47aad31ac@195.88.57.50:30303",
-			Fleet:   params.FleetProd,
+			Fleet:   params.Fleetnd2alphaProd,
 			Version: 1,
 		},
 		Mailserver{
