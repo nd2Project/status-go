@@ -13,13 +13,13 @@ const cryptocompareURL = "https://min-api.cryptocompare.com"
 
 var renameMapping = map[string]string{
 	"STT":   "SNT",
-	"USDx":  "USD",
-	"CADx":  "CAD",
-	"MXNx":  "MXN",
-	"COPx":  "COP",
-	"BRLx":  "BRL",
-	"CLPx":  "CLP",
-	"ARSx":  "ARS",
+	"USDX":  "USD",
+	"CADX":  "CAD",
+	"MXNX":  "MXN",
+	"COPX":  "COP",
+	"BRLX":  "BRL",
+	"CLPX":  "CLP",
+	"ARSX":  "ARS",
 	"EQUIX": "USD",
 	"ND2":   "USD",
 }
